@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
 import PropTypes from 'prop-types'
 
+
 export default class Product extends Component {
   render() {
     const { id, title, img, price, inCart } = this.props.product;
@@ -13,7 +14,7 @@ export default class Product extends Component {
           <ProductConsumer>
             {(value)=> (
                 <div
-                  className="img-container p-5"
+                  className="img-container "
                   onClick= {()=>value.handleDetail(id)}
                 >
                   <Link to="/details">
@@ -44,7 +45,7 @@ export default class Product extends Component {
                 {title}
               </p>
               <h5 className="text-blue font-italic mb-0">
-                <span className="mr-1">$</span>
+                <span className="mr-1">Rs</span>
                 {price}
               </h5>
           </div>
@@ -69,6 +70,8 @@ const ProductWrapper = styled.div`
     .card {
       border-color: transparent;
       transition: all 1s linear;
+      height:18.5rem;
+     
     }
     .card-footer {
       background: transparent;

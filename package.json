@@ -2,6 +2,10 @@
   "name": "store-recording",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node":"12.14.1",
+    "npm":"6.13.4"
+  },
   "dependencies": {
     "bootstrap": "^4.3.1",
     "react": "^16.8.6",
@@ -12,7 +16,7 @@
     "styled-components": "^4.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "SET PORT=5500 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

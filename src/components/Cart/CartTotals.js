@@ -2,8 +2,16 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import PayPalButton from './PayPalButton'
 
+const orderNow=orderedItems=>{
+   const order= orderedItems.map(item=>{return {item:item.title,itemQty:item.count,itemTotal:item.total}})
+   console.log(order)
+    alert("Call us Now on 7559622860")
+}
+
 export default function CartTotals({value, history}) {
-    const {cartSubTotal, cartTax, cartTotal, clearCart} = value;
+    console.log(value)
+    const {cartSubTotal, cartTax,cart, cartTotal, clearCart} = value;
+    console.log(cart)
     return (
     <React.Fragment>
         <div className="container">
@@ -21,21 +29,28 @@ export default function CartTotals({value, history}) {
                         <span className="text-title">
                             subtotal: 
                         </span>
-                        <strong>${cartSubTotal}</strong>
+                        <strong>Rs{cartSubTotal}</strong>
                     </h5>
                     <h5>
                         <span className="text-title">
                             tax: 
                         </span>
-                        <strong>${cartTax}</strong>
+                        <strong>Rs{0}</strong>
                     </h5>
                     <h5>
                         <span className="text-title">
                             total: 
                         </span>
-                        <strong>${cartTotal}</strong>
+                        <strong>Rs{cartTotal}</strong>
                     </h5>
-                    <PayPalButton total={cartTotal} clearCart={clearCart} history={history}/>
+                   {/*<PayPalButton total={cartTotal} clearCart={clearCart} history={history}/> */} 
+
+                   <button 
+                        className="btn btn-outline-danger text-uppercase mb-3 px-5"
+                        type="button"
+                        onClick={()=>orderNow(cart)}>
+                            Order Now!!
+                        </button>
                 </div>
             </div>
         </div>
