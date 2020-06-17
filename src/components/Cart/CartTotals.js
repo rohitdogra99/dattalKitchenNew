@@ -1,11 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import PayPalButton from './PayPalButton'
+import axios from 'axios'
 
-const orderNow=orderedItems=>{
+const orderNow= async(orderedItems)=>{
    const order= orderedItems.map(item=>{return {item:item.title,itemQty:item.count,itemTotal:item.total}})
    console.log(order)
     alert("Call us Now on 7559622860")
+    // Add route to backend
+  await   axios.post('/api/ordernow',{order:orderedItems})
+
 }
 
 export default function CartTotals({value, history}) {
